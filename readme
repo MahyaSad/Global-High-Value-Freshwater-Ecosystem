@@ -1,3 +1,5 @@
-This repository includes the main code for creating 9 tiles of high value fresh water ecosystem with 30 meter resolution 
+This repository includes the main code for creating 9 tiles of high value fresh water ecosystems with 30 meter resolution 
 the requirement:
-aligned 30 meter UMD LULC, MERIT stream, catchment, gradient and floodplain datasets
+aligned 30 meter UMD LULC, MERIT stream, catchment, gradient and floodplain datasets.
+the min and max scenario refers to the the minimum and maximum delineation scenario described in the paper. 
+
