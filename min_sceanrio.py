@@ -1,4 +1,3 @@
-# import numpy as np
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 from scipy.ndimage import binary_dilation
@@ -11,8 +10,6 @@ import os
 import numpy as np
 import os
 
-os.environ["PROJ_LIB"] = "/home/mghaziza/JupyterLinks/nobackup/JupyterLinks/projects/hydro-proc/mahya/riparian/envs/gdal10_env/share/proj"
-print(f"PROJ_LIB is set to: {os.environ['PROJ_LIB']}")
 
 def get_reference_extent(filepath, bounds):
     """Get reference extent and transform from stream dataset."""
@@ -160,14 +157,6 @@ def create_edge_buffer(data, buffer_distance_pixels):
     outer_edge_buffer = outer_buffer & ~binary_fill_holes(binary)
     
     return outer_edge_buffer
-
-# def create_edge_buffer(data, buffer_distance_pixels):
-#     """Create buffer from the edge of water bodies."""
-#     binary = data > 0
-#     buffer_size = int(buffer_distance_pixels)
-#     structure = np.ones((2 * buffer_size + 1, 2 * buffer_size + 1))
-#     buffer = binary_dilation(binary, structure) & ~binary
-#     return buffer
 
 def get_floodplain_width(floodplain_mask):
     """
