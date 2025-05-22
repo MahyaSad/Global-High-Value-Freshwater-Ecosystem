@@ -1,4 +1,3 @@
-# import numpy as np
 import rasterio
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 from scipy.ndimage import binary_dilation
@@ -157,13 +156,6 @@ def create_edge_buffer(data, buffer_distance_pixels):
     
     return outer_edge_buffer
 
-# def create_edge_buffer(data, buffer_distance_pixels):
-#     """Create buffer from the edge of water bodies."""
-#     binary = data > 0
-#     buffer_size = int(buffer_distance_pixels)
-#     structure = np.ones((2 * buffer_size + 1, 2 * buffer_size + 1))
-#     buffer = binary_dilation(binary, structure) & ~binary
-#     return buffer
 
 def get_floodplain_width(floodplain_mask):
     """
@@ -270,9 +262,7 @@ def process_window(bounds, input_files, ref_transform):
         datasets['inundated_wetland'][overlap_inundated] = False
         wetland_buffer = create_stream_buffer(datasets['inundated_wetland'], 2)
         
-        
-        
-        
+                
         overlap_flood = datasets['floodplain'] & (
             datasets['surface_water'] | datasets['inundated_wetland'] 
         )
@@ -470,6 +460,6 @@ if __name__ == "__main__":
     process_by_tiles(
         input_files,
         
-        "riparian_max_tile2_V2.tif",
+        "riparian_max_tile2.tif",
         window_size=2  # 2-degree windows
     )
