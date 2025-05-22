@@ -3,3 +3,8 @@ the requirement:
 aligned 30 meter UMD LULC, MERIT stream, catchment, gradient and floodplain datasets.
 the min and max scenario refers to the the minimum and maximum delineation scenario described in the paper. 
 
+countrly class 8 is for extracting the riparian classess for each country and save the tiff file for each country
+
+next python code is for finding the intersection of the UMD land cover data for each country and do the pixel wise comparison between the UMD and country based tif files ( from the pervious code) to find the distributoion of UMD layer for the 
+HVFEs components per country. 
+
