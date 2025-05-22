@@ -374,7 +374,7 @@ class TiffProcessor:
             writer.writerow([])
             writer.writerow(['Riparian_Class', 'UMD_Class', 'Pixel_Count', 'Percentage'])
             
-            for rip_class in [4]:
+            for rip_class in [6]:
                 total = results[rip_class]['total']
                 writer.writerow([rip_class, 'Total', total, '100%'])
                 
@@ -620,8 +620,8 @@ def main():
     processor = TiffProcessor()
     base_umd_dir = "UMD_results"
     base_riparian_dir = "result_max"
-    output_dir = "csv_results3"
-    temp_dir = "temp_aligned_tiffs3"
+    output_dir = "csv_results"
+    temp_dir = "temp_aligned_tiffs"
     
     results = processor.process_all(base_umd_dir, base_riparian_dir, output_dir, temp_dir)
     print("Processing completed with results:", results)
