@@ -435,7 +435,7 @@ if __name__ == "__main__":
     process_by_tiles(
         input_files,
         
-        "riparian_full_min_tile7_V2.tif",
+        "riparian_full_min_tile7.tif",
         window_size=2  # 2-degree windows
     )
     
