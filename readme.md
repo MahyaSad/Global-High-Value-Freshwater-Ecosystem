@@ -27,8 +27,8 @@ All input datasets are aligned to the **30-meter UMD Land Cover layer** for spat
 |---------|------------|-------------|
 | **UMD Land Cover** | 30m | Primary land cover classification layer |
 | **MERIT Hydro Stream** | 90m → 30m | Stream network (downsampled and aligned) |
-| **Slope** | Various → 30m | Terrain slope (resampled and aligned) |
-| **Catchments** | 30m | drived from MERIT 30 meter stream and slope  |
+| **Slope** | 90m → 30m | Terrain slope (resampled and aligned) |
+| **Catchments** | 30m | drived from downscaled MERIT stream and slope  |
 | **GFplain** | 90m → 30m | Global Floodplain dataset (resampled and aligned) |
 
 > 📋 **Note**: See the associated research paper for complete methodological details and data sources.
