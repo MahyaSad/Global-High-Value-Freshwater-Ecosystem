@@ -5,10 +5,11 @@
 
 This repository contains Python scripts for generating **High-Value Freshwater Ecosystem (HVFE) maps** at 30-meter resolution globally. The workflow processes geospatial data to identify and map critical freshwater ecosystems using multiple scenario-based delineation approaches.
 
-🗺️ Data Availability
-The global HVFE maps, delineated under both minimum and maximum scenarios at 30-meter resolution, are available on Zenodo:
-Show Image
-Dataset: https://doi.org/10.5281/zenodo.15338535
+## 🗺️ Data Availability
+
+The **global HVFE maps**, delineated under both minimum and maximum scenarios at 30-meter resolution, are available on Zenodo: 
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15338535.svg)](https://doi.org/10.5281/zenodo.15338535)
 
 ## 🌍 Overview
 
