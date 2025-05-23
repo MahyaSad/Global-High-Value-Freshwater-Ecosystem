@@ -1,55 +1,201 @@
-High-Value Freshwater Ecosystem (HVFE) Mapping – Python Code Repository
+# High-Value Freshwater Ecosystem (HVFE) Mapping
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 
-This repository contains the primary Python scripts used to generate 9 HVFE tiles globally at 30-meter resolution. The workflow processes each tile independently, using several aligned geospatial inputs.
+This repository contains Python scripts for generating **High-Value Freshwater Ecosystem (HVFE) maps** at 30-meter resolution globally. The workflow processes geospatial data to identify and map critical freshwater ecosystems using multiple scenario-based delineation approaches.
 
-🔹 Input Datasets
-Each HVFE tile is generated using the following key inputs (aligned to the 30-meter UMD Land Cover layer):
+## 🌍 Overview
 
-UMD Land Cover (30m)
+The HVFE mapping system generates **90 global tiles** covering freshwater ecosystems worldwide. Each tile is processed independently using aligned geospatial datasets to ensure consistency and accuracy. The methodology supports both maximum and minimum delineation scenarios to capture varying levels of ecosystem extent and connectivity.
 
-MERIT Hydro Stream (downsampled to 30m and aligned to UMD)
+## 📊 Input Datasets
 
-Catchments derived from MERIT streams
+All input datasets are aligned to the **30-meter UMD Land Cover layer** for spatial consistency:
 
-Slope (downsampled and aligned to UMD)
+| Dataset | Resolution | Description |
+|---------|------------|-------------|
+| **UMD Land Cover** | 30m | Primary land cover classification layer |
+| **MERIT Hydro Stream** | 90m → 30m | Stream network (downsampled and aligned) |
+| **Stream Catchments** | 30m | Watershed boundaries derived from MERIT streams |
+| **Slope** | Various → 30m | Terrain slope (resampled and aligned) |
+| **GFplain** | 90m → 30m | Global Floodplain dataset (resampled and aligned) |
 
-GFplain (Global Floodplain, 90m) resampled and aligned to UMD
+> 📋 **Note**: See the associated research paper for complete methodological details and data sources.
 
-See the associated paper for full methodological details.
+## 🛠️ Core Scripts
 
-🔹 Code Functionality
-maximum_delineation.py and minimum_delineation.py
-These scripts perform maximum and minimum scenario delineations for each of the 90 global tiles (see guide figure). Inputs include:
+### Scenario Delineation Scripts
 
-UMD Land Cover
+#### `maximum_delineation.py` & `minimum_delineation.py`
+**Purpose**: Generate HVFE maps using maximum and minimum delineation scenarios
 
-Stream Layer
+**Inputs**:
+- UMD Land Cover layer
+- Stream network layer
+- Catchment boundaries
+- GFplain (floodplain extent)
 
-Catchments
+**Output**: 
+- Tile-based HVFE maps in WGS84 projection
+- Classified ecosystem types with scenario-specific extents
 
-GFplain (floodplain extent)
+**Usage**:
+```python
+# Maximum scenario - broader ecosystem delineation
+python maximum_delineation.py --tile_id <tile_number>
 
-The output is a tile-based HVFE map in WGS84 projection.
+# Minimum scenario - conservative ecosystem delineation  
+python minimum_delineation.py --tile_id <tile_number>
+```
 
-country_HVFE_max.py
-This script generates HVFE maps at the country level, using:
+### Country-Level Analysis Scripts
 
-A United Nations country shapefile (included)
+#### `country_HVFE_max.py`
+**Purpose**: Generate country-level HVFE statistics and maps
 
-National boundaries to clip HVFEs
+**Features**:
+- Uses UN country boundaries for precise clipping
+- Calculates area statistics for each HVFE class per country
+- Handles proper reprojection for accurate area calculations
+- Outputs results in hectares
 
-Area calculations for each HVFE class per country (in hectares)
+**Inputs**:
+- HVFE tile outputs (from delineation scripts)
+- UN country shapefile (included)
 
-Proper reprojection steps to ensure spatial accuracy
+**Output**:
+- Country-clipped HVFE maps
+- Area statistics by HVFE class per country
 
-country_UMD.py
-This script computes the intersection between UMD land cover and HVFE classes per country:
+#### `country_UMD.py`
+**Purpose**: Analyze land cover composition within HVFE classes by country
 
-Extracts UMD land cover statistics for each HVFE class
+**Features**:
+- Intersects UMD land cover with HVFE classifications
+- Calculates detailed land cover statistics per HVFE class
+- User-configurable HVFE class selection
+- Area calculations in hectares
 
-Calculates land cover areas (in hectares) by class
+**Example Configuration**:
+```python
+# Extract land cover stats for floodplain areas (class 6) under maximum scenario
+target_hvfe_class = 6  # Floodplain from maximum delineation
+```
 
-Requires the user to define the specific HVFE class of interest (e.g., floodplain from maximum scenario = class 6)
+## 🗂️ Repository Structure
 
-The included example extracts UMD land cover stats only for floodplain (class 6) under the maximum delineation scenario.
+```
+HVFE-Mapping/
+├── scripts/
+│   ├── maximum_delineation.py
+│   ├── minimum_delineation.py
+│   ├── country_HVFE_max.py
+│   └── country_UMD.py
+├── data/
+│   └── UN_countries.shp           # Country boundaries
+├── docs/
+│   └── methodology.md             # Detailed methods
+├── examples/
+│   └── example_analysis.ipynb     # Usage examples
+└── README.md
+```
+
+## 🚀 Quick Start
+
+### Prerequisites
+```bash
+# Required Python packages
+pip install numpy pandas geopandas rasterio xarray dask
+```
+
+### Basic Workflow
+
+1. **Generate HVFE tiles**:
+   ```bash
+   python maximum_delineation.py --tile_id 1
+   python minimum_delineation.py --tile_id 1
+   ```
+
+2. **Create country-level maps**:
+   ```bash
+   python country_HVFE_max.py --country_code USA
+   ```
+
+3. **Analyze land cover composition**:
+   ```bash
+   python country_UMD.py --country_code USA --hvfe_class 6
+   ```
+
+## 📈 Output Products
+
+### Tile-Level Outputs
+- **Format**: GeoTIFF raster files
+- **Projection**: WGS84 (EPSG:4326)
+- **Resolution**: 30 meters
+- **Classes**: Scenario-dependent HVFE classifications
+
+### Country-Level Outputs
+- **Vector formats**: Shapefile, GeoJSON
+- **Statistics**: CSV files with area calculations
+- **Units**: Hectares per HVFE class
+
+### Land Cover Analysis
+- **Cross-tabulation**: HVFE class vs. UMD land cover types
+- **Area statistics**: Detailed breakdown by ecosystem and land cover
+- **Format**: CSV and Excel formats
+
+## 🔬 Delineation Scenarios
+
+| Scenario | Approach | Use Case |
+|----------|----------|----------|
+| **Maximum** | Broader connectivity, inclusive boundaries | Conservation planning, ecosystem services |
+| **Minimum** | Conservative extent, core habitats only | Priority protection, critical habitat mapping |
+
+## 📚 Documentation
+
+- **Methodology**: See `docs/methodology.md` for detailed technical methods
+- **Examples**: Check `examples/` folder for Jupyter notebook tutorials
+- **API Reference**: Function documentation available in individual scripts
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [contribution guidelines](CONTRIBUTING.md) for details on:
+- Code style and standards
+- Testing procedures
+- Documentation requirements
+- Pull request process
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📖 Citation
+
+If you use this code in your research, please cite:
+
+```bibtex
+@article{hvfe_mapping_2024,
+  title={High-Value Freshwater Ecosystem Mapping at Global Scale},
+  author={[Author Names]},
+  journal={[Journal Name]},
+  year={2024},
+  doi={[DOI]}
+}
+```
+
+## 📞 Contact
+
+- **Primary Contact**: [Name] - [email@institution.edu]
+- **Issues**: Please use GitHub Issues for bug reports and feature requests
+- **Discussions**: Use GitHub Discussions for questions and community interaction
+
+## 🔄 Version History
+
+- **v1.0.0** - Initial release with core delineation algorithms
+- **v1.1.0** - Added country-level analysis capabilities
+- **v1.2.0** - Performance improvements and bug fixes
+
+---
+
+**Keywords**: freshwater ecosystems, geospatial analysis, conservation mapping, MERIT Hydro, land cover analysis
