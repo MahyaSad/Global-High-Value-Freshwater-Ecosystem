@@ -125,7 +125,7 @@ def calculate_pixel_area(ds_proj, lat):
         # For projected coordinates, simple multiplication is fine
         return abs(ds_proj.rio.resolution()[0] * ds_proj.rio.resolution()[1])
 
-def process_window(bounds, country_tif, classes=[1, 2, 3,4, 5, 6, 7, 8]):
+def process_window(bounds, country_tif, classes=[1, 2, 3,4, 5, 6, 7]):
     """Process a single window of the raster data with improved projection handling"""
     try:
         window_areas = {cls: 0 for cls in classes}
@@ -272,7 +272,7 @@ def calculate_country_riparian_area(folder_path, window_size=1.0):
         tiff_files = [f for f in os.listdir(folder_path) if f.endswith('.tif')]
         
         # Initialize total areas dictionary for the country with zeros
-        country_total_areas = {cls: 0 for cls in [1, 2, 3,4, 5, 6, 7, 8]}
+        country_total_areas = {cls: 0 for cls in [1, 2, 3,4, 5, 6, 7]}
         
         # Return zero-filled dictionary if no TIFF files found
         if not tiff_files:
@@ -372,7 +372,7 @@ def calculate_country_riparian_area(folder_path, window_size=1.0):
                 pixel_area = abs(gt_rep[1] * gt_rep[5])  # in square meters
                 
                 # Initialize areas for this file
-                file_areas = {cls: 0 for cls in [1, 2, 3,4, 5, 6, 7, 8]}
+                file_areas = {cls: 0 for cls in [1, 2, 3,4, 5, 6, 7]}
                 
                 # Process by blocks
                 block_sizes = band.GetBlockSize()
@@ -461,7 +461,7 @@ def calculate_country_riparian_area(folder_path, window_size=1.0):
     except Exception as e:
         logger.error(f"Error processing folder {folder_path}: {str(e)}")
         # Return zero-filled dictionary instead of None on error
-        return {cls: 0 for cls in [1, 2, 3,4, 5, 6, 7, 8]}
+        return {cls: 0 for cls in [1, 2, 3,4, 5, 6, 7]}
 
 def main():
     """Main function with enhanced reporting and individual country file saving"""
@@ -519,8 +519,7 @@ def main():
                 'Class_4_Area_Ha': round(areas[4], 2),
                 'Class_5_Area_Ha': round(areas[5], 2),
                 'Class_6_Area_Ha': round(areas[6], 2),
-                'Class_7_Area_Ha': round(areas[7], 2),
-                'Class_8_Area_Ha': round(areas[8], 2),
+                'Class_7_Area_Ha': round(areas[7], 2)
                 'Total_Area_Ha': round(sum(areas.values()), 2)
             }
             
