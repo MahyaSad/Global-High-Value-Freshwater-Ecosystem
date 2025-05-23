@@ -130,7 +130,7 @@ The carbon accumulation potential analysis utilizes **Google Earth Engine (GEE)*
 
 **Rationale**: The separate script handles the specialized tree cover threshold methodology required for classes 3-4 in the minimum scenario, ensuring agricultural productivity is maintained while maximizing restoration potential.
 
-**GEE Link**: [Insert your GEE Code Editor link here](https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcode.earthengine.google.com%2F55e9327ca883c5d7b495c30f9c449997&data=05%7C02%7Cmahyasadat.ghazizadehhashemi%40nasa.gov%7Cb664abc3e9734bc2c55908dd9a0af785%7C7005d45845be48ae8140d43da96dd17b%7C0%7C0%7C638836094146268997%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=YBJC%2Bn%2BuOm6scTStPH7A%2F%2Fyyk7DwUMzdE2eOfc4ZneY%3D&reserved=0)
+**GEE Link**: [View in Google Earth Engine Code Editor](https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcode.earthengine.google.com%2F55e9327ca883c5d7b495c30f9c449997&data=05%7C02%7Cmahyasadat.ghazizadehhashemi%40nasa.gov%7Cb664abc3e9734bc2c55908dd9a0af785%7C7005d45845be48ae8140d43da96dd17b%7C0%7C0%7C638836094146268997%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=YBJC%2Bn%2BuOm6scTStPH7A%2F%2Fyyk7DwUMzdE2eOfc4ZneY%3D&reserved=0)
 
 ### Carbon Analysis Methodology
 
@@ -186,17 +186,18 @@ HVFE-Mapping/
 
 ## Workflow Integration
 1. **HVFE Mapping** (Python): Generate HVFE classifications using maximum/minimum scenarios
-2. **Biome Filtering** (GEE): Restrict analysis to forest biomes using RESOLVE 2017 dataset
-3. **Restoration Area Identification** (GEE): Identify degraded areas (croplands/short vegetation) within target HVFE classes
-4. **Carbon Accumulation Modeling** (GEE): Apply Cook-Patton et al. rates with scenario-specific adjustments
-5. **Country-Level Aggregation** (GEE): Calculate national and global carbon removal potential
-6. **Results Integration**: Combine HVFE extent with carbon accumulation estimates and convert to CO₂ equivalent
+2. **Country-Level HVEF Analysis** (Python): Generate HVFE in a country level with UMD distribution
+3. **Biome Filtering** (GEE): Restrict analysis to forest biomes using RESOLVE 2017 dataset
+4. **Restoration Area Identification** (GEE): Identify degraded areas (croplands/short vegetation) within target HVFE classes
+5. **Carbon Accumulation Modeling** (GEE): Apply Cook-Patton et al. rates with scenario-specific adjustments
+6. **Country-Level Aggregation** (GEE): Calculate national and global carbon removal potential
+7. **Results Integration**: Combine HVFE extent with carbon accumulation estimates and convert to CO₂ equivalent
 
 ## Key References
 - **Cook-Patton et al.**: Global carbon accumulation rates from natural forest regeneration
 - **RESOLVE 2017**: Global biome classification for forest identification  
 - **Potapov et al.**: Global land cover for degraded area identification
-- **Sprenkle-Hyppolite et al.**: Maximum tree cover thresholds in agricultural systems
+- **Sprenkle-Hyppolite et al. **: Maximum tree cover thresholds in agricultural systems
 
 ## Requirements
 - **Python Environment**: JupyterHub with geospatial libraries
@@ -206,28 +207,4 @@ HVFE-Mapping/
 ---
 
 **Keywords**: freshwater ecosystems, geospatial analysis, conservation mapping, MERIT Hydro, land cover analysis, carbon sequestration, biomass estimation, Google Earth Engine
-
-
-
-
-
-
-
-
-## Repository Structure
-
-```
-HVFE-Mapping/
-├── scripts/
-│   ├── maximum_delineation.py
-│   ├── minimum_delineation.py
-│   ├── country_HVFE_max.py
-│   └── country_UMD.py
-└── README.md
-```
-
-
----
-
-**Keywords**: freshwater ecosystems, geospatial analysis, conservation mapping, MERIT Hydro, land cover analysis
 
