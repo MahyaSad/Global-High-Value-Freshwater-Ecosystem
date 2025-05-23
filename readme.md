@@ -73,7 +73,7 @@ exec(open('GlobalHVFE_Min_delineation.py').read())
 
 **Inputs**:
 - HVFE tile outputs (from delineation scripts)
-- UN country shapefile (included)
+- UN country shapefile (https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/)
 
 **Output**:
 - Country-clipped HVFE maps
