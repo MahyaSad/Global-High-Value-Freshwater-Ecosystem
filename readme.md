@@ -97,7 +97,7 @@ target_hvfe_class = 6  # Floodplain from maximum delineation
 ## Part 2: Carbon Accumulation Potential Estimation
 
 ### Overview
-The carbon accumulation potential analysis utilizes **Google Earth Engine (GEE)** JavaScript code to estimate carbon storage and sequestration potential within HVFE classes. The analysis is implemented through two complementary scripts that handle different HVFE scenarios and classes.
+The carbon accumulation potential analysis utilizes **Google Earth Engine (GEE)** JavaScript code to estimate carbon sequestration potential within HVFE classes. The analysis is implemented through two complementary scripts that handle different HVFE scenarios and classes.
 
 ### Google Earth Engine Scripts
 
@@ -105,7 +105,7 @@ The carbon accumulation potential analysis utilizes **Google Earth Engine (GEE)*
 **Purpose**: Calculate carbon accumulation potential for maximum scenario and class 5 in minimum scenario
 
 **Target Classes**:
-- **Maximum delineation scenario**: All HVFE classes (headwaters, stream buffers, water body buffers, geomorphic floodplains)
+- **Maximum delineation scenario**: headwaters, stream buffers, water body buffers, geomorphic floodplains
 - **Minimum delineation scenario**: Class 5 only
 
 **Methodology**:
