@@ -51,12 +51,12 @@ All input datasets are aligned to the **30-meter UMD Land Cover layer** for spat
 - Classified ecosystem types with scenario-specific extents
 
 **Usage**:
-```python
-# Maximum scenario - broader ecosystem delineation
-python GlobalHVFE_Max_delineation.py 
+**Requirements**: JupyterHub environment with computational resources
 
-# Minimum scenario - conservative ecosystem delineation  
-python GlobalHVFE_Min_delineation.py 
+```python
+# Load and run in JupyterHub notebook cell:
+exec(open('maximum_delineation.py').read())
+exec(open('minimum_delineation.py').read())
 ```
 
 ### Country-Level Analysis Scripts
