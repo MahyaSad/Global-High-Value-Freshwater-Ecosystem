@@ -215,12 +215,6 @@ def process_window(bounds, input_files, ref_transform):
                 water_buffer = create_edge_buffer(datasets['surface_water'], 2)
                 inundated_mask=(data >= 102) & (data <= 196)
                 datasets['inundated_wetland'] = (inundated_mask ).astype(bool) 
-
-            elif name == 'wetland':
-                #inundated_mask = np.isin(data,[2, 3])
-                gw_mask = np.isin(data,[1, 3])
-                #datasets['inundated_wetland'] = (inundated_mask & umd_mask).astype(bool) 
-                datasets['gw_wetland'] = (gw_mask & umd_mask).astype(bool)
             elif name == 'stream': 
                 first_stream_mask = (data >= 1) & (data <= 3)
                 high_stream_mask = (data >= 4) & (data <= 11)
@@ -451,9 +445,7 @@ if __name__ == "__main__":
     input_files = {
         'floodplain': 'merged_GFP_tile2_30.tif',
         'stream': 'merged_order_tile2_30.tif',
-        'subcatch': 'merged_subcatchments_tile2_30.tif',
-        'wetland': 'wetland_tile2_30.tif',
-        
+        'subcatch': 'merged_subcatchments_tile2_30.tif',        
         'umd': 'UMD_tile2_30.tif'
     }
     
