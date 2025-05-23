@@ -15,6 +15,10 @@ The **global HVFE maps**, delineated under both minimum and maximum scenarios at
 
 The HVFE mapping system generates **9 global tiles** covering freshwater ecosystems worldwide. Each tile is processed independently using aligned geospatial datasets to ensure consistency and accuracy. The methodology supports both maximum and minimum delineation scenarios (with and without floodplain).
 
+The HVFE mapping system divides the globe into 9 tiles for comprehensive coverage:
+
+![HVFE Global Tiles Overview](hvfe_global_tiles_overview.png)
+
 ## 📊 Input Datasets
 
 All input datasets are aligned to the **30-meter UMD Land Cover layer** for spatial consistency:
