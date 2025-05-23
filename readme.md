@@ -197,7 +197,7 @@ HVFE-Mapping/
 - **Cook-Patton et al.**: Global carbon accumulation rates from natural forest regeneration
 - **RESOLVE 2017**: Global biome classification for forest identification  
 - **Potapov et al.**: Global land cover for degraded area identification
-- **Sprenkle-Hyppolite et al. **: Maximum tree cover thresholds in agricultural systems
+- **Sprenkle-Hyppolite et al.**: Maximum tree cover thresholds in agricultural systems
 
 ## Requirements
 - **Python Environment**: JupyterHub with geospatial libraries
