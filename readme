@@ -1,4 +1,4 @@
-#High-Value Freshwater Ecosystem (HVFE) Mapping – Python Code Repository
+High-Value Freshwater Ecosystem (HVFE) Mapping – Python Code Repository
 
 
 This repository contains the primary Python scripts used to generate 9 HVFE tiles globally at 30-meter resolution. The workflow processes each tile independently, using several aligned geospatial inputs.
