@@ -130,7 +130,7 @@ The carbon accumulation potential analysis utilizes **Google Earth Engine (GEE)*
 
 **Rationale**: The separate script handles the specialized tree cover threshold methodology required for classes 3-4 in the minimum scenario, ensuring agricultural productivity is maintained while maximizing restoration potential.
 
-**GEE Link**: [Insert your GEE Code Editor link here]
+**GEE Link**: [Insert your GEE Code Editor link here](https://gcc02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcode.earthengine.google.com%2F55e9327ca883c5d7b495c30f9c449997&data=05%7C02%7Cmahyasadat.ghazizadehhashemi%40nasa.gov%7Cb664abc3e9734bc2c55908dd9a0af785%7C7005d45845be48ae8140d43da96dd17b%7C0%7C0%7C638836094146268997%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=YBJC%2Bn%2BuOm6scTStPH7A%2F%2Fyyk7DwUMzdE2eOfc4ZneY%3D&reserved=0)
 
 ### Carbon Analysis Methodology
 
