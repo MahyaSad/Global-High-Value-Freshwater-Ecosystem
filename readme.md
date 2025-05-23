@@ -51,6 +51,7 @@ All input datasets are aligned to the **30-meter UMD Land Cover layer** for spat
 - Classified ecosystem types with scenario-specific extents
 
 **Usage**:
+
 **Requirements**: JupyterHub environment with computational resources
 
 ```python
