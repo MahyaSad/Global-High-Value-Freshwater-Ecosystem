@@ -5,21 +5,21 @@
 
 This repository contains Python scripts for generating **High-Value Freshwater Ecosystem (HVFE) maps** at 30-meter resolution globally. The workflow processes geospatial data to identify and map critical freshwater ecosystems using multiple scenario-based delineation approaches.
 
-## 🗺️ Data Availability
+## Data Availability
 
 The **global HVFE maps**, delineated under both minimum and maximum scenarios at 30-meter resolution, are available on Zenodo: 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15338535.svg)](https://doi.org/10.5281/zenodo.15338535)
 
-## 🌍 Overview
+## Overview
 
 The HVFE mapping system generates **9 global tiles** covering freshwater ecosystems worldwide. Each tile is processed independently using aligned geospatial datasets to ensure consistency and accuracy. The methodology supports both maximum and minimum delineation scenarios (with and without floodplain).
 
 The HVFE mapping system divides the globe into 9 tiles for comprehensive coverage:
 
-![HVFE Global Tiles Overview](hvfe_global_tiles_overview.png)
+![HVFE Global Tiles Overview](hvfe_global_tiles_overview.svg)
 
-## 📊 Input Datasets
+## Input Datasets
 
 All input datasets are aligned to the **30-meter UMD Land Cover layer** for spatial consistency:
 
@@ -33,7 +33,7 @@ All input datasets are aligned to the **30-meter UMD Land Cover layer** for spat
 
 > 📋 **Note**: See the associated research paper for complete methodological details and data sources.
 
-## 🛠️ Core Scripts
+## Core Scripts
 
 ### Scenario Delineation Scripts
 
@@ -93,7 +93,7 @@ python GlobalHVFE_Min_delineation.py
 target_hvfe_class = 6  # Floodplain from maximum delineation
 ```
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```
 HVFE-Mapping/
