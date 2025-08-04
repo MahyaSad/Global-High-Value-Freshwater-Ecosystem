@@ -11,6 +11,8 @@ The **global HVFE maps**, delineated under both minimum and maximum scenarios at
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15338535.svg)](https://doi.org/10.5281/zenodo.15338535)
 
+**CSV Outputs**: Country-level results for both the water (HVFE area) and carbon (CO₂ removal potential) components—used to generate figures and analyses in the related paper—are available in the `CSV_files/` directory of this repository.
+
 ## Overview
 
 The HVFE mapping system generates **9 global tiles** covering freshwater ecosystems worldwide. Each tile is processed independently using aligned geospatial datasets to ensure consistency and accuracy. The methodology supports both maximum and minimum delineation scenarios (with and without floodplain).
